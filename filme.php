@@ -9,7 +9,7 @@ $search = $_GET['search'];
 $sql = "SELECT * FROM Film";
 
 if($search){
-  $sql .= " WHERE filmID='".$search."'";
+  $sql .= " WHERE name LIKE '%".$search."%'";
 }
 
 $stmt = oci_parse($conn, $sql);
