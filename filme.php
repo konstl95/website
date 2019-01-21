@@ -4,11 +4,39 @@ require 'connect.php';
 require 'head.php';
 
 
+$search = $_GET['search'];
+
 $sql = "SELECT * FROM Film";
 
+if($search){
+  $sql .= " WHERE filmID='".$search."'";
+}
 
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);
+
+
+?>
+
+
+
+<form action="filme.php" method="get">
+
+    Durchsuche Film:
+    <input id='search' name='search' type='text' size='30' value='<?php echo $_GET['search']; ?>' />
+    nach
+	<select id='Tabelle' name='tab' onchange='attr()'>
+					<option value="" disabled selected>Tabelle auswählen...</option>
+					<option value="Filmdirected">Regisseure</option>
+					<option value="Filmstarring">Schauspieler</option>
+					<option value="Filmsave">Pfad</option>
+	</select>
+	<input id='submit' type='submit' value='search!' />
+</form>
+
+
+
+<?php
 echo "<table style='border: 1px solid #DDDDDD'><thead><tr>";
 echo"<th>filmID</th>";
 echo"<th>laenge</th>";
@@ -31,7 +59,6 @@ echo "Insgesamt".oci_num_rows($stmt)." ".$tabelle." gefunden";
 
 
 ?>
-
 
 
 

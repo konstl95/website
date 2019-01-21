@@ -38,9 +38,9 @@ require 'head.php';
 	-->
 
 	</form>
-
+<a href='filme.php'>Alle Filme</a> <br/>---
 <form action="filme.php" method="get">
-  <a href='index.php?search=&tab=Film&att=all'>Alle Filme</a> <br/>---
+
     Durchsuche Film:
     <input id='search' name='search' type='text' size='30' value='<?php echo $_GET['search']; ?>' />
     nach
