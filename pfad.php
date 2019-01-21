@@ -9,7 +9,7 @@ $search = $_GET['search'];
 
 $id = $_GET['id'];
 
-$sql = "SELECT * FROM Filmdatenbank";
+$sql = "SELECT * FROM Filmsave";
 
 if($id){
   $sql .= " WHERE filmID='".$id."'";
