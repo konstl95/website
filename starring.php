@@ -39,14 +39,14 @@ oci_execute($stmt);
 
 
 <?php
-echo "<table style='border: 1px solid #DDDDDD'><thead><tr>";
+echo "<table class='table table-stripedtable-dark'><thead><tr>";
 echo"<th>personID</th>";
 echo"<th>filmID</th>";
 echo"</tr></thead><tbody>";
 while ($row = oci_fetch_assoc($stmt)) {
     echo "<tr>";
-    echo "<td>" . $row['personID'] . "</td>";
-    echo "<td>" . $row['filmID'] . "</td>";
+    echo "<td>" . $row['PERSONID'] . "</td>";
+    echo "<td>" . $row['FILMID'] . "</td>";
     echo "</tr>";
 
 

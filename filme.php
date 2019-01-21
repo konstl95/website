@@ -37,7 +37,7 @@ oci_execute($stmt);
 
 
 <?php
-echo "<table style='border: 1px solid #DDDDDD'><thead><tr>";
+echo "<table class='table table-striped table-dark'><thead><tr>";
 echo"<th>filmID</th>";
 echo"<th>laenge</th>";
 echo"<th>release</th>";//in swl erscheinungsdatum
