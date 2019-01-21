@@ -37,7 +37,9 @@ echo"<th>filmID</th>";
 echo"<th>laenge</th>";
 echo"<th>release</th>";//in swl erscheinungsdatum
 echo"<th>name</th>";
-echo"<th>starring</th>";
+echo"<th>Regiseure</th>";
+echo"<th>Pfad</th>";
+echo"<th>Starring</th>";
 echo"<th>Person Hinzufügen</th>";
 echo"</tr></thead><tbody>";
 while ($row = oci_fetch_assoc($stmt)) {
@@ -46,6 +48,8 @@ while ($row = oci_fetch_assoc($stmt)) {
     echo "<td>" . $row['LAENGE'] . "</td>";
     echo "<td>" . $row['ERSCHEINUNGSDATUM'] . "</td>";
     echo "<td>" . $row['NAME'] . "</td>";
+    echo "<td><a href='regiseur.php?id=" . $row['FILMID'] . "'> Zeige Regiseure</a</td>";
+    echo "<td><a href='pfad.php?id=" . $row['FILMID'] . "'> Zeige Pfad</a</td>";
     echo "<td><a href='starring.php?id=" . $row['FILMID'] . "'> Zeige Starring</a</td>";
     echo "<td><a href='add_entry.php?id=" . $row['FILMID'] . "'> + </a</td>";
     echo "</tr>";
