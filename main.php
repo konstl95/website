@@ -4,42 +4,57 @@ require 'connect.php';
 require 'head.php';
 
 ?>
-<h2>DBS WS2018</h2>
+    <h2>DBS WS2018</h2>
 		<h1>Filmdatenbank</h1>
 		<br>
-		<a href='index.php'>Start</a>
-		
+
+
+
+
+
+
+		<a href='filme.php'>Start</a>
+
 		<div>
-		<form id='searchform' action='index.php' method='get'>
+
+
+
+	<form id='searchform' action='mitwirkende.php' method='get'>
     <a href='index.php?search=&tab=Mitwirkende&att=all'>Alle Mitwirkende</a> ---
     Suche nach Mitwirkende:
     <input id='search' name='search' type='text' size='30' value='<?php echo $_GET['search']; ?>' />
-    <input id='submit' type='submit' value='search!' /> 
+    <input id='submit' type='submit' value='search!' />
+
 	<br/>
 	<!--
 	filmsearches-->
-	<a href='index.php?search=&tab=Film&att=all'>Alle Filme</a> <br/>---
+
+	<br/>
+	<!--
+	<a href='index.php?search=&tab=Schauspieler&att=all'>Alle Schauspieler</a> ---
+    Suche nach Schauspieler:
+    <input id='search' name='search' type='text' size='30' value='<?php echo $_GET['search']; ?>' />
+    <input id='submit' type='submit' value='search!' />
+	-->
+
+	</form>
+
+<form action="filme.php" method="get">
+  <a href='index.php?search=&tab=Film&att=all'>Alle Filme</a> <br/>---
     Durchsuche Film:
     <input id='search' name='search' type='text' size='30' value='<?php echo $_GET['search']; ?>' />
-    nach 
+    nach
 	<select id='Tabelle' name='tab' onchange='attr()'>
 					<option value="" disabled selected>Tabelle auswählen...</option>
 					<option value="Filmdirected">Regisseure</option>
 					<option value="Filmstarring">Schauspieler</option>
 					<option value="Filmsave">Pfad</option>
 	</select>
-	<input id='submit' type='submit' value='search!' /> 
-	<br/>
-	<!--
-	<a href='index.php?search=&tab=Schauspieler&att=all'>Alle Schauspieler</a> ---
-    Suche nach Schauspieler:
-    <input id='search' name='search' type='text' size='30' value='<?php echo $_GET['search']; ?>' />
-    <input id='submit' type='submit' value='search!' /> 
-	-->
-	
-	</form>
-	
-	
+	<input id='submit' type='submit' value='search!' />
+</form>
+
+
+
 		</div>
 
 		<?php
@@ -86,23 +101,23 @@ require 'head.php';
 					echo $sql;
 					echo $suchbegriff;
 					break;
-			
-			
-			
-			
-			
+
+
+
+
+
 			}
-		
+
 		// execute sql statement
 		$stmt = oci_parse($conn, $sql);
 		oci_execute($stmt);
-		
-		//Ausgabe 
-		
+
+		//Ausgabe
+
 		//tabelle anhand der auswahl erstellen
 		echo "<table style='border: 1px solid #DDDDDD'><thead><tr>";
 		switch($tabelle){
-			
+
 			case "Film":
 				echo"<th>filmID</th>";
 				echo"<th>laenge</th>";
@@ -123,20 +138,20 @@ require 'head.php';
 			case "Filmstarring":
 				echo"<th>personID</th>";
 				echo"<th>filmID</th>";
-				break;	
+				break;
 			case "Filmdirected":
 				echo"<th>personID</th>";
 				echo"<th>filmID</th>";
-				break;	
+				break;
 			case "Filmsave":
 				echo"<th>pfad</th>";
 				echo"<th>filmID</th>";
 				break;
-				
-		
+
+
 		}
 		echo"</tr></thead><tbody>";//ende der tabelle
-		
+
 		while ($row = oci_fetch_assoc($stmt)) {
 			echo "<tr>";
 			switch($tabelle){
@@ -161,7 +176,7 @@ require 'head.php';
 				case "Filmstarring":
 					echo "<td>" . $row['PERSONID'] . "</td>";
 					echo "<td>" . $row['FILMID'] . "</td>";
-					break;	
+					break;
 				case "Filmdirected":
 					echo "<td>" . $row['PERSONID'] . "</td>";
 					echo "<td>" . $row['FILMID'] . "</td>";
@@ -172,18 +187,18 @@ require 'head.php';
 					break;
 			}
 			echo "</tr>";
-			
+
 		}//ende while
 		echo "</tbody></table>";
 		echo "Insgesamt".oci_num_rows($stmt)." ".$tabelle." gefunden";
 		//if (oci_num_rows($stmt)) {echo "</tbody></table>";}
-    
+
   } else {
 	  echo "auswahl treffen";
-    
-	
+
+
   }
- 
+
 ?>
 <!--personID VARCHAR(20) NOT NULL,     /*should be imdb */
 	vorname VARCHAR(30) DEFAULT 'Max',
@@ -203,14 +218,14 @@ require 'head.php';
 						<option value="Filmstarring">Schauspieler</option>
 						<option value="Filmsave">Pfad</option>
 		</select>
-		<input id='submit' type='submit' value='Tabelle waehlen' /> 
+		<input id='submit' type='submit' value='Tabelle waehlen' />
 	<form/>
 	<?php
   //Handle insert
-  if (isset($_GET['inserttab'])) 
+  if (isset($_GET['inserttab']))
   {
     $auswahl = $_GET['inserttab'];
-	
+
 	//echo "<form id='insertform' action='index.php' method='get'><table style='border: 1px solid #DDDDDD'><thead><tr>";
 	switch($auswahl){
 		case "Filmsave":
@@ -221,7 +236,7 @@ require 'head.php';
 					<table style='border: 1px solid #DDDDDD'>
 					<thead>
 						<tr>
-							<th>Pfad</th>	
+							<th>Pfad</th>
 							<th>filmID</th>
 						</tr>
 					</thead>
@@ -230,18 +245,18 @@ require 'head.php';
 							<input id='pfad' name='pfad' type='text' size='10' value='". $_GET['pfad']. "' />
 						</td>
 					<tbody/>
-					
+
 					</table>
 						<input id='submit' type='submit' value='Einfuegen!' />
 				</form>
 				";
 		break;
-		
-		
+
+
 	}
-  } 
+  }
 ?>
-	
+
 <div/>
 
 <div>
@@ -261,7 +276,7 @@ require 'head.php';
 	  <tbody>
 	     <tr>
 			<td>
-				
+
 			<td/>
 	        <td>
 	           <input id='personID' name='personID' type='text' size='10' value='<?php echo $_GET['personID']; ?>' />
@@ -278,7 +293,7 @@ require 'head.php';
 			<td>
 				<input id='salary' name='salary' type='number' size='20' value='<?php echo $_GET['salary']; ?>' />
 			</td>
-		
+
 	      </tr>
            </tbody>
         </table>
@@ -287,7 +302,7 @@ require 'head.php';
 </div>
 <?php
   //Handle insert
-  if (isset($_GET['personID'])) 
+  if (isset($_GET['personID']))
   {
     //Prepare insert statementd
     $sql = "INSERT INTO Mitwirkende VALUES('" . $_GET['personID'] . "','"  . $_GET['vorname'] . "','" . $_GET['nachname'] . "','" . $_GET['herkunft'] . "'," . $_GET['salary'] . ")";
@@ -308,7 +323,7 @@ require 'head.php';
        print("<br>");
     }
     oci_free_statement($insert);
-  } 
+  }
 ?>
 
 
