@@ -42,6 +42,7 @@ echo"<th>filmID</th>";
 echo"<th>laenge</th>";
 echo"<th>release</th>";//in swl erscheinungsdatum
 echo"<th>name</th>";
+echo"<th>starring</th>";
 echo"</tr></thead><tbody>";
 while ($row = oci_fetch_assoc($stmt)) {
     echo "<tr>";
@@ -50,6 +51,7 @@ while ($row = oci_fetch_assoc($stmt)) {
     echo "<td>" . $row['ERSCHEINUNGSDATUM'] . "</td>";
     echo "<td>" . $row['HERKUNFT'] . "</td>";
     echo "<td>" . $row['SALARY'] . "</td>";
+    echo "<td><a href='starring.php?id=" . $row['FILMID'] . "'> Zeige Starring</a</td>";
     echo "</tr>";
 
 
