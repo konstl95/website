@@ -18,7 +18,7 @@ if($id){
 if($search){
   $sql .= " WHERE filmID='".$search."'";
 }
-
+echo $sql;
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);
 
