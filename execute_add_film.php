@@ -12,7 +12,7 @@ $name = $_GET['name'];
 $laenge = $_GET['laenge'];
 $datum = $_GET['datum'];
 
-$sql = "INSERT INTO Film	VALUES('".$filmid"','".$laenge."',TO_DATE('".$datum."','YYYY-MM-DD'),'".$name."')";
+$sql = "INSERT INTO Film	VALUES('".$filmid."','".$laenge."',TO_DATE('".$datum."','YYYY-MM-DD'),'".$name."')";
 
 
 echo $sql;
