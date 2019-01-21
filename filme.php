@@ -28,7 +28,7 @@ oci_execute($stmt);
 
 	<input id='submit' type='submit' value='search!' />
 </form>
-<a href="add_film.php" class="btn btn-lg">Film hinzufügen</a>
+<a href="add_film.php" class="btn btn-primary btn-lg">Film hinzufügen</a>
 
 
 <?php

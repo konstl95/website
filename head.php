@@ -22,6 +22,11 @@
 
           </ul>
 
+					<form class="form-inline my-2 my-md-0" action="filme.php" method="get">
+            <input class="form-control" type="text" name="search" placeholder="Film Suchen" aria-label="Search">
+
+          </form>
+
       </div>
     </nav>
 

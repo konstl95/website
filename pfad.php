@@ -31,7 +31,7 @@ oci_execute($stmt);
 <?php
 
 echo "<table class='table table-stripedtable-dark'><thead><tr>";
-echo"<th>personID</th>";
+echo"<th>Pfad</th>";
 echo"<th>filmID</th>";
 echo"</tr></thead><tbody>";
 while ($row = oci_fetch_assoc($stmt)) {

@@ -11,7 +11,8 @@ $filmid = $_GET['filmid'];
 $tabelle = $_GET['tabelle'];
 $eintragsid = $_GET['eintragsid'];
 
-$sql = "INSERT INTO ".$tabelle. " VALUES ('".$eintragsid."','".$filmid."')";
+
+$sql = "INSERT INTO ".$tabelle." VALUES ('".$eintragsid."','".$filmid."')";
 
 
 echo $sql;
