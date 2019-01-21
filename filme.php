@@ -24,16 +24,11 @@ oci_execute($stmt);
 
     Durchsuche Film:
     <input id='search' name='search' type='text' size='30' value='<?php echo $_GET['search']; ?>' />
-    nach
-	<select id='Tabelle' name='tab' onchange='attr()'>
-					<option value="" disabled selected>Tabelle auswählen...</option>
-					<option value="Filmdirected">Regisseure</option>
-					<option value="Filmstarring">Schauspieler</option>
-					<option value="Filmsave">Pfad</option>
-	</select>
+
+
 	<input id='submit' type='submit' value='search!' />
 </form>
-
+<a href="add_film.php" class="btn btn-lg">Film hinzufügen</a>
 
 
 <?php
@@ -52,7 +47,7 @@ while ($row = oci_fetch_assoc($stmt)) {
     echo "<td>" . $row['ERSCHEINUNGSDATUM'] . "</td>";
     echo "<td>" . $row['NAME'] . "</td>";
     echo "<td><a href='starring.php?id=" . $row['FILMID'] . "'> Zeige Starring</a</td>";
-    echo "<td><a href='add_starring.php?id=" . $row['FILMID'] . "'> + </a</td>";
+    echo "<td><a href='add_entry.php?id=" . $row['FILMID'] . "'> + </a</td>";
     echo "</tr>";
 
 

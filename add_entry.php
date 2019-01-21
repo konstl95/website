@@ -13,7 +13,7 @@ $id = $_GET['id'];
 ?>
 
 
-<form action="execute_add_starring.php" method="get">
+<form action="execute_add_entry.php" method="get">
   <h1>Füge Eintrag zu FilmID <?php echo $id;?></h1>
   <input type="hidden" name="filmid" value="<?php echo $id;?>">
   <input type="text" name="eintragsid" value="" placeholder="Mitwirkende ID">
