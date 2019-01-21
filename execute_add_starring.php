@@ -4,13 +4,14 @@ require 'connect.php';
 require 'head.php';
 
 
-$search = $_GET['search'];
+
 
 
 $filmid = $_GET['filmid'];
-$mitwirkenderid = $_GET['mitwirkenderid'];
+$tabelle = $_GET['tabelle'];
+$eintragsid = $_GET['eintragsid'];
 
-$sql = "INSERT INTO Filmstarring VALUES ('".$mitwirkenderid."','".$filmid."')";
+$sql = "INSERT INTO ".$tabelle. " VALUES ('".$eintragsid."','".$filmid."')";
 
 
 echo $sql;
@@ -20,7 +21,7 @@ oci_execute($stmt);
 
 ?>
 
-<h1>Person <?php echo $mitwirkenderid;?> wurde erfolgreich hinzugefügt zu Film <?php echo $filmid;?></h1>
+<h1>Eintrag wurde erfolgreich in<?php echo $tabelle;?> hinzugefügt zu Film <?php echo $filmid;?></h1>
 <a href="main.php">Zurück</a>
 
 
