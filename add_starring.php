@@ -26,7 +26,7 @@ oci_execute($stmt);
   <select class="" name="mitwirkenderid">
     <?php
     while ($row = oci_fetch_assoc($stmt)) {
-        echo '<option value="'.$row['PERSONID'] . '">Pfad</option>';
+        echo '<option value="'.$row['PERSONID'] . '">'.$row['PERSONID'] .'</option>';
 
 
 

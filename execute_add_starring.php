@@ -20,7 +20,7 @@ oci_execute($stmt);
 
 ?>
 
-<h1>Person wurde erfolgreich hinzugefügt zu Film <?php echo $filmid;?></h1>
+<h1>Person <?php echo $mitwirkenderid;?> wurde erfolgreich hinzugefügt zu Film <?php echo $filmid;?></h1>
 <a href="main.php">Zurück</a>
 
 
