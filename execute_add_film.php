@@ -10,7 +10,7 @@ require 'head.php';
 $filmid = $_GET['id'];
 $name = $_GET['name'];
 $laenge = $_GET['laenge'];
-$datum = $_GET['$datum'];
+$datum = $_GET['datum'];
 
 $sql = "INSERT INTO Film	VALUES('".$filmid"','".$laenge."',TO_DATE('".$datum."','YYYY-MM-DD'),'".$name."')";
 
