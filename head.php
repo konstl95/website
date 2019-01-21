@@ -6,3 +6,7 @@
 	</head>
 
 	<body>
+
+		<nav>
+			<a href="main.php">Zurück</a>
+		</nav>
