@@ -22,7 +22,7 @@ oci_execute($stmt);
 ?>
 
 <h1>Eintrag wurde erfolgreich in<?php echo $tabelle;?> hinzugefügt zu Film <?php echo $filmid;?></h1>
-<a href="main.php">Zurück</a>
+<a href="filme.php">Zurück</a>
 
 
 
